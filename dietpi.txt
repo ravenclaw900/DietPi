@@ -107,6 +107,11 @@ AUTO_SETUP_AUTOSTART_TARGET_INDEX=0
 # - Applies to all autostart options but: 0, 6, 14 and 16
 AUTO_SETUP_AUTOSTART_LOGIN_USER=root
 
+# Flash operating system to internal device: 0=Keep DietPi on current device | Otherwise use path of device to flash to
+# - This is useful when flashing to a device's internal EMMC
+# - Put path in form of '/dev/path_to_device' (e.g. /dev/mmcblk2)
+AUTO_SETUP_FLASH_OS=0
+
 ##### Non-interactive Firstrun Setup #####
 # On first login, run update, initial setup and software installs without any user input
 # - Setting this to "1" is required for below settings to take effect

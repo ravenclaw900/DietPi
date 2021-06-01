@@ -3,11 +3,14 @@
 	# Error out on command failures
 	set -e
 
-	# Disable this service
-	! systemctl is-enabled dietpi-fs_partition_resize > /dev/null || systemctl disable dietpi-fs_partition_resize
+	# Detect if DietPi should be reflashed onto another device
+	(( $(sed -n '/^[[:blank:]]*AUTO_SETUP_FLASH_OS=/{s/^[^=]*=//p;q}' /boot/dietpi.txt) )) && /var/lib/dietpi/services/reflash_os.sh
 
 	# Detect root device
 	ROOT_DEV=$(findmnt -Ufnro SOURCE -M /)
+
+	# Disable this service
+	! systemctl is-enabled dietpi-fs_partition_resize > /dev/null || systemctl disable dietpi-fs_partition_resize
 
 	# Detect root partition and parent drive for supported naming schemes:
 	# - SCSI/SATA:	/dev/sd[a-z][1-9]
