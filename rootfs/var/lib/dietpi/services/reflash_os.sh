@@ -7,7 +7,6 @@
 	. /boot/dietpi/func/dietpi-globals
 	readonly G_PROGRAM_NAME='DietPi-OS-Reflash'
 	G_CHECK_ROOT_USER
-	G_INIT
 
 	REFLASH_PATH=$(sed -n '/^[[:blank:]]*AUTO_SETUP_FLASH_OS=/{s/^[^=]*=//p;q}' /boot/dietpi.txt)
 
