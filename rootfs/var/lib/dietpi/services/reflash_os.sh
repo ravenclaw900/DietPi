@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/bin/dash
 {
 	# Error out on command failures
 	set -e
 
 	# Load DietPi-Globals
-    . /boot/dietpi/func/dietpi-globals
+	. /boot/dietpi/func/dietpi-globals
 	readonly G_PROGRAM_NAME='DietPi-OS-Reflash'
 	G_CHECK_ROOT_USER
 	G_INIT
