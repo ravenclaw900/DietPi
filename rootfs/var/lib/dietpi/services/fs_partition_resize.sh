@@ -4,7 +4,7 @@
 	set -e
 
 	# Detect if DietPi should be reflashed onto another device
-	(( $(sed -n '/^[[:blank:]]*AUTO_SETUP_FLASH_OS=/{s/^[^=]*=//p;q}' /boot/dietpi.txt) )) && /var/lib/dietpi/services/reflash_os.sh
+	[[ $(sed -n '/^[[:blank:]]*AUTO_SETUP_FLASH_OS=/{s/^[^=]*=//p;q}' /boot/dietpi.txt) != 0 ]] && /var/lib/dietpi/services/reflash_os.sh
 
 	# Detect root device
 	ROOT_DEV=$(findmnt -Ufnro SOURCE -M /)
